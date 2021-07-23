@@ -1,0 +1,23 @@
+<header>
+    <nav class="navbar navbar-light bg-light p-3">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Instagram Clone App</span>
+
+            <div class="">
+
+                <%= link_to 'View all posts', posts_path , class: "btn btn-outline-secondary"%>
+                <%= link_to 'Publish', new_post_path , class: "btn btn-outline-primary"%>
+            </div>
+            <div>
+
+                <% if logged_in? %>
+                <%= link_to "Profile", user_path(current_user.id) , class: "btn btn-primary text-light"%>
+                <%= link_to "Logout", session_path(current_user.id), method: :delete , class: "btn btn-danger text-light" %>
+                <% else %>
+                <%= link_to "Sign up", new_user_path , class: "btn btn-outline-primary text-light" %>
+                <%= link_to "Login", new_session_path, class: "btn btn-outline-success text-light" %>
+                <% end %>
+            </div>
+        </div>
+    </nav>
+</header>

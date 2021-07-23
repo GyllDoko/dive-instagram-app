@@ -1,0 +1,19 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.danger {
+  width: 100%;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+}
+.notice {
+  width: 100%;
+  text-align: center;
+  background-color: rgb(0, 217, 255);
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+}

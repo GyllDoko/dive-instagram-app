@@ -1,0 +1,45 @@
+<h1>Post Detail</h1>
+<div class="" style="display: flex; justify-content: center">
+  <div class="card w-50">
+    <div class="card-header">
+      <%if @post.user.image.url%> <%= image_tag @post.user.image.url, class: "",
+      width: "50px"%>
+      <span class="float-end"><%= @post.user.name.upcase %></span>
+      <%else%>
+      <p></p>
+      <%end%>
+    </div>
+    <div class="card-body">
+      <div class="w-100">
+        <img
+          class="card-img-top"
+          src="<%= @post.image.url %>"
+          alt=""
+          height="500px"
+          width="500px"
+        />
+      </div>
+      <h5 class="card-title"><%= @post.title %></h5>
+
+      <p class="card-text"><%= @post.content %></p>
+    </div>
+    <div class="card-footer clearfix">
+      <small class="text-muted" style="float: right"
+        ><%= @post.created_at %></small
+      >
+      <%if @post.user==current_user %>
+      <p>
+        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning" %>
+      </p>
+      <% end %> <% unless @post.user_id == current_user.id %> <% if
+      @favorite.present? %> <%= link_to 'Supprimer le favori',
+      favorite_path(post_id: @post.id), method: :delete, class: 'btn btn-danger'
+      %> <% else %> <%= link_to 'Ajouter au favoris',
+      favorite_index_path(post_id: @post.id),method: :post, class: 'btn
+      btn-primary' %> <% end %> <% end %>
+      <p>
+        <%= link_to 'Back', posts_path , class: "btn btn-outline-secondary" %>
+      </p>
+    </div>
+  </div>
+</div>

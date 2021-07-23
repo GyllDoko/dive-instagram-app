@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<div class="container text-center">
+  <%if @user.image.url%> <%= image_tag @user.image.url, class: "", width:
+  "300px"%> <%else%>
+  <p></p>
+  <%end%>
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+
+  <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning" %> | <%=
+  link_to 'Back', posts_path , class: "btn btn-danger"%>
+</div>
